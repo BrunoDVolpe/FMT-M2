@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seletores CSS</title>
+    <style>
+        /* pseudo-classe root - facilita muito o design system - variáveis */
+        :root {
+            --minha-var-roxa: purple;
+            --padding-std-proj: 16px;
+            /* Trabalhar com esquema de light e dark */
+            color-scheme: light dark;
+        }
+
+        /* Aplicar em todo o documento */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* sem isso, a "box" é calculada pelo conteúdo - content-box -, então padding, border e margin são dimensões extras */
+            /* border-box vai considerar que o tamanho do componente inclui conteúdo, padding e borda, deixando apenas a margem para fora da largura e altura */
+            /* padding-box é o valor para calcular a dimensão com base no conteúdo + padding, deixando a borda e a margem como tamanhos extras */
+            font-size: 20px;
+        }
+
+        /* Seletor de elementos */
+        p {
+            color: green;
+        }
+
+        /* Seletor de classe */
+        .child {
+            color:aqua;
+        }
+
+        /* Seletor de ID */
+        #first {
+            color: black;
+        }
+
+        /* Seletor de atributo */
+        p[title="atributo"] {
+            background-color: aquamarine;
+        }
+
+        /* Seletor de pseudo-classe */
+        p[title="atributo"]:hover {
+            background-color: transparent;
+        }
+
+        /* Descendentes - aplica a todos que seguem essa árvore e também que estejam dentro dela (descendentes) */
+        .child div p {
+            color: red; /* nesse exemplo aplicará em 3 parágrafos */
+        }
+
+        /* Filhos diretos - aplica a todos que seguem exatamente essa árvore */
+        .child > div > p {
+            color: red; /* nesse exemplo aplicará em 2 parágrafos */
+        }
+
+        /* Combinadores CSS - Aplica no elemento depois do + e que estejam na mesma hierarquia. Bom pra estilizar lista a partir do segundo elemento, por exemplo */
+        p + strong {
+            margin-top: 16px;
+            display: block;
+            color: black;
+        }
+
+        /* Irmãos subsequentes - aplica em todos os que estiverem depois da primeira condição na mesma hierarquia, mesmo se outro componente estiver entre eles */
+        p ~ strong {
+            margin-top: 16px;
+            display: block;
+            color: brown;
+        }
+
+        /* pseudo-elemento , antes ou depois do elemento que estamos selecionando */
+        p[title="atributo"]:hover::before {
+            content: "pseudo-elemento BEFORE ativo! ";
+        }
+        p[title="atributo"]:hover::after {
+            content: " pseudo-elemento AFTER ativo!";
+        }
+
+        /* Aplicando variável de :root */
+        h5 {
+            color: var(--minha-var-roxa);
+            padding: var(--padding-std-proj);
+        }
+
+        label {
+            padding: 16px;
+            background-color: #cecece;
+            border-radius: 5px;
+        }
+
+        /* Status checked - mais difícil de trabalhar no input checkbox */
+        input:checked + label {
+            border: 5px solid red;
+        }
+
+        /* Light / Dark mode - aplicado no root e configurado na classe - pega modo do sistema */
+        h6 {
+            color: light-dark(black, white);
+            background-color: light-dark(#f0f0f0, #222222);
+        }
+    </style>
+</head>
+<body>
+    <p title="atributo">Parágrafo com atributo</p>
+    <div class="child">
+        <p id="first">Lorem, ipsum.</p>
+        <div>
+            <p>Lorem, ipsum.</p>
+            <p>Lorem, ipsum.</p>
+            <div>
+                <p>Lorem, ipsum.</p>
+            </div>
+        </div>
+        <p>P + strong Lorem, ipsum.</p>
+        <strong>p + Strong Lorem, ipsum.</strong>
+        <p>P + strong Lorem, ipsum.</p>
+        <strong>p + Strong Lorem, ipsum.</strong>
+        <p>P + strong Lorem, ipsum.</p>
+        <strong>p + Strong Lorem, ipsum.</strong>
+        <div><p>div no caminho</p></div>
+        <p>P + strong Lorem, ipsum.</p>
+        <strong>p + Strong Lorem, ipsum.</strong>
+    </div>
+    <br>
+    <input id="check" type="checkbox" hidden>
+    <label for="check">Checkbox</label>
+    <br>
+    <h5>Aplicando variável de :root</h5>
+    <h6>Aplicando light / dark mode</h6>
+</body>
+</html>
