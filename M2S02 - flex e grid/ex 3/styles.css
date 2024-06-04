@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'Lucida Sans', sans-serif;
+    color: white;
+}
+
+.content {
+    height: 100vh;
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    align-items: center;
+}
+
+.justify {
+	justify-content: center;
+}
+
+.contact-form {
+    width: fit-content;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #101820;
+}
+
+.contact-form > h1 {
+    font-size: 2rem;
+}
+
+.contact-form label,
+.contact-form input {
+    font-size: 1.25rem;
+}
+
+.fit {
+    width: fit-content;
+}
+
+input {
+    padding: 5px 10px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.ml-5 {
+    margin-left: 5px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btnEnviar {
+    background-color: darkmagenta;
+    color: white;
+}
+
+.btnLimpar {
+    color: black
+}
+
+.justify-left {
+    justify-content: flex-end;
+}
