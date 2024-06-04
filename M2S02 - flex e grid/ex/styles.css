@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 2em;
+}
+
+h1 {
+color: darkblue;
+}
+
+li {
+    color: darkcyan;
+    margin-left: 1.5em;
+    list-style-type: circle;
+}
+
+li::marker {
+    color: black;
+}
+
+.pt-10 {
+    padding-top: 10px;
+}
+
+.pt-30 {
+    padding-top: 30px;
+}
