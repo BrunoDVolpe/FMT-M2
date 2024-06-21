@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Criando uma lista de tarefas</title>
+    <style>
+        .taskDone {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container-tarefas">
+            <h1 id="titulo">Lista de tarefas</h1>
+            <form>
+                <input name="tarefa" type="text" placeholder="Adicione sua tarefa" />
+                <button type="button">+</button>
+            </form>
+            <section>
+                <ul class="list">
+                </ul>
+            </section>
+        </div>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
