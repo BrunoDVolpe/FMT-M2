@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de tarefas</h1>
+        <input id="task-input" type="text" placeholder="Nova tarefa">
+        <button onclick="adcTarefa()">Adicionar tarefa</button>
+        <ul id="task-list"></ul>
+    </div>
+    <script>
+        function adcTarefa() {
+            // capturar o dado do input
+            const taskInput = document.getElementById("task-input")
+            const taskList = document.getElementById("task-list")
+
+            // Checar se não está vazio
+            if(!taskInput.value.trim()) {
+                taskInput.value = ""
+                return
+            }
+
+            // adicionar na lista
+            taskList.innerHTML += `<li>${taskInput.value.trim()}</li>`
+            
+            // limpar o input
+            taskInput.value = ""
+        }
+    </script>
+</body>
+</html>

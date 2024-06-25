@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .gradiente-de-opacidade {
+            width: 300px; /* ajuste conforme necessário */
+            height: 200px; /* ajuste conforme necessário */
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        }
+    </style>
+    <title>Gradiente de Opacidade</title>
+</head>
+<body>
+    <div class="gradiente-de-opacidade">
+        <h2>Conteúdo da Div</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero ut ligula varius faucibus.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 2 - Exercício em aula</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Exemplo com input -->
+        <input type="text" id="myInput" placeholder="Escreva algo...">
+        <!-- Exemplo com clique -->
+        <p id="paragraph" class="default-paragraph">Este é um parágrafo que será modificado</p>
+        <div class="controls">
+            <input id="btn-cor" onclick="mudarCor()" type="button" class="pointer" value="Mudar cor do texto">
+            <input id="btn-classe" onclick="alternarClasse()" type="button" class="pointer" value="Adicionar / remover classe">
+            <input id="btn-atributo" onclick="alternarAtributo()" type="button" class="pointer" value="Adicionar / remover atributo">
+        </div>
+        <!-- Exemplo com formulário -->
+        <!-- Se não quiser colocar por addEventListener, dá pra colocar o "onsubmit" no html -->
+        <!-- Exemplo: <form id="myForm" onsubmit="submitForm($event)"> -->
+        <form id="myForm">
+            <input type="text" name="username" placeholder="Username">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>

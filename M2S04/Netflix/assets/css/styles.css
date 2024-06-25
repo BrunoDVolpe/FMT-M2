@@ -1,0 +1,138 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    background-image: url('../imgs/poster.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 75%;
+    padding-bottom: 20px;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em 25vw;
+}
+
+ul li {
+    cursor: pointer;
+}
+
+ul li a {
+    text-decoration: none;
+}
+
+.info-serie {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+}
+
+.titulo {
+    font-size: 36px;
+}
+
+.genero {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.descricao {
+    width: 70%;
+}
+
+.ler-mais {
+    color: #e50914;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.episodios {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 15px;
+    align-items: center;
+}
+
+.episodios .card-episodio:nth-child(3) {
+    /* Aplicar máscara de opacidade no terceiro elemento */
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.card-episodio {
+    width: 207px;
+    height: 122px;
+    background-color: #E5E5E5;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.episodios .card-episodio:nth-child(1) {
+    /* Aumentar tamanho do primeiro episódio */
+    width: 230px;
+    height: 135px;
+}
+
+.info-main {
+    display: flex;
+    flex-direction: row;
+    padding-left: 90px;
+    padding-right: 250px;
+    padding-top: 50px;
+    gap: 150px;
+}
+
+.mt-14 {
+    margin-top: 14px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-28 {
+    margin-bottom: 28px;
+}
+
+.mt-56 {
+    margin-top: 56px;
+}
+
+.poster {
+    width: 290px;
+}
+
+.social {
+    width: 20px;
+    height: 160px;
+    position: absolute;
+    right: 30px;
+    top: 50%; 
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

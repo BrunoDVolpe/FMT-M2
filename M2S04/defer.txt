@@ -1,0 +1,26 @@
+Toda vez que for carregar um javascript e corre o risco de o elemento não ter sido carregado, podemos colocar um "defer" como atributo do carregamento do javascript, assim ele lidará com essa situação.
+Exemplo:
+
+<script src="scripts.js" defer></script>
+
+Ou garantir que por carregamento o script seja rodado depois do carregamento da tela.
+
+Também é uma boa opção colocar um try catch na hora de pegar o elemento; ou então um if else para logar se o elemento não foi encontrado. Assim evita o "estresse" de algo não funcionar por conta de carregamento.
+
+Exemplo if:
+const elemento = document.getElementById('meuBotao')
+if(!elemento) {
+  console.log("Não encontro o botão ...")
+}
+
+Exemplo try/catch - no addEventListener ele acusa erro por conta do null
+try {
+  const elemento = document.getElementById('meuBotao')
+  elemento.addEventListener('click', () => {...})
+} catch (error) {
+  console.log("Erro ao pegar o botão: " + error.message)
+}
+
+Em resumo, se o JavaScript for dependente do HTML (usa elementos do HTML), ele precisa estar declarado no final do body ou usando o "defer" no head.
+
+Um dos erros que podem aparecer no console é que não pode aplicar determinado evento em null (já que não encontrou o elemento - ele ainda não existia durante o carregamento das coisas)
