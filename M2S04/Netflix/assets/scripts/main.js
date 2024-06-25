@@ -25,15 +25,17 @@ function listarEpisodios() {
         episodioDiv.classList.add('card-episodio')
         episodioDiv.innerHTML = `<span style="color:black;">Episódio ${episodio.episodio} | Temporada ${episodio.temporada}</span>`
         episodioDiv.setAttribute('onclick', 'iniciarEpisodio(event)')
-        //episodioDiv.dataset.add('episodio') = episodio.episodio PROCURAR COMO ADICIONAR E BUSCAR O DATASET PARA PASSAR NO CONSOLE.LOG DE ASSISTIR EPISODIO
+        episodioDiv.dataset.episodioId = episodio.id
+        episodioDiv.dataset.episodioEpisodio = episodio.episodio
+        episodioDiv.dataset.episodioTemporada = episodio.temporada
         listaEpisodios.appendChild(episodioDiv)
     }
 }
 
 function iniciarEpisodio(event) {
-    console.log(event)
-    //console.log(`Iniciando episódio ${} da temporada ${}`)
-    console.log(`Iniciando ${event.target.innerText}`)
+    const episodio = event.target.dataset.episodioEpisodio
+    const temporada = event.target.dataset.episodioTemporada
+    console.log(`Iniciando episódio ${episodio} da temporada ${temporada}`)
 }
 
 listarEpisodios()
