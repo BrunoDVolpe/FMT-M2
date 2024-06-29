@@ -1,0 +1,2 @@
+Figma: https://www.figma.com/design/03N1kcCxpOtDmaa1KrHu2F/Shop365?node-id=0-1&t=Bz1QXUQhQAlWmuhw-1
+API Produtos: https://dummyjson.com/docs/products#products-all

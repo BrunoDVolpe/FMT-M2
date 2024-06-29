@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <h1>Noticia em destaque</h1>
+    <p></p>
+  </div>
+
+
+  <script>
+    const tituloNoticiaPrincipal = document.querySelector('div p')
+
+    (async () => {
+      const resposta = await fetch('https://servicodados.ibge.gov.br/api/v3/noticias/?destaque=0')
+      const data = await resposta.json()
+
+      const noticiaPrincipal = data.items[0]
+
+      if (noticiaPrincipal) {
+        tituloNoticiaPrincipal.innerHTML = noticiaPrincipal.titulo
+      }
+
+
+    })()
+    console.log(tituloNoticiaPrincipal)
+  </script>
+</body>
+
+</html>
