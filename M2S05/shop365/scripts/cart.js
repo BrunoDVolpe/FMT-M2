@@ -36,8 +36,8 @@ function renderListCart() {
     const cartList = JSON.parse(cartListStorage)
 
     cartList.forEach(product => {
-      const cartitem = createElementItemCart(product)
-      cartListElement.appendChild(cartitem)
+      const cartItem = createElementItemCart(product)
+      cartListElement.appendChild(cartItem)
     })
     // Total do carrinho
     const totalCart = cartList.reduce((acumulador, itemProduct) => {
@@ -56,7 +56,7 @@ export function addProductCart(product) {
   const cartListStorage = localStorage.getItem('carrinho') // retornar string or null
 
   if (cartListStorage) {
-    const cartList = JSON.parse(cartListStorage) // convertir os dados para objeto javascript
+    const cartList = JSON.parse(cartListStorage) // converter os dados para objeto javascript
     cartList.push(product)
 
     localStorage.setItem('carrinho', JSON.stringify(cartList))
