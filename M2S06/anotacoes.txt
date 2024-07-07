@@ -32,6 +32,7 @@ Renderizar uma lista bikes criando um card através do componente CardBike pra c
     <CardBike key={bike.id} imagemSrc={bike.imgSrc} modelo={bike.modelo} preco={bike.preco}
     comprarBike={comprarBike} />
 )}
+OBS: Um componente ao ser renderizado em lista assim precisa ter uma propriedade key de identificação.
 
 Em CardBike, a função recebe os parâmetros:
 function CardBike({ modelo, preco, imagemSrc, comprarBike }) {...}
