@@ -26,3 +26,18 @@ Início
 - Acessar a pasta criada
 - Rodar: npm install para instalar dependências
 - Rodar: npm run dev para iniciar o servidor com as configurações padrão e checar que está funcionando
+
+Renderizar uma lista bikes criando um card através do componente CardBike pra cada item da lista:
+{bikes.map(bike =>
+    <CardBike key={bike.id} imagemSrc={bike.imgSrc} modelo={bike.modelo} preco={bike.preco}
+    comprarBike={comprarBike} />
+)}
+
+Em CardBike, a função recebe os parâmetros:
+function CardBike({ modelo, preco, imagemSrc, comprarBike }) {...}
+
+Sobre a função comprarBike como parâmetro:
+const comprarBike = () => {
+        console.log('Comprando a bike pelo Bicicletas.jsx')
+    }
+// Se usasse function comprarBike() {...}, em CardBike, no onClick, usaria {() => comprarBike()}
