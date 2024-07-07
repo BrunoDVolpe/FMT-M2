@@ -1,0 +1,32 @@
+.contato-form {
+    max-width: 550px;
+    margin: 40px;
+}
+
+.justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.contato-form fieldset {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contato-form label {
+    min-width: 80px;
+    text-align: right;
+}
+
+.contato-form input,
+.contato-form textarea {
+    padding: 4px;
+}
+
+.contato-form button {
+    margin-top: 8px;
+    background-color: #2e2e2e;
+    color: #ededed;
+    padding: 16px 32px;
+}
