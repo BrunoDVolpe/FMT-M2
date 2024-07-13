@@ -5,7 +5,16 @@ function Contador() {
     const [resultado, setResultado] = useState(0)
 
     function handleAdd() {
+        //setResultado(resultado + 1) //A atualização do estado leva um tempo. Quando colocamos várias atualizações em seguida, ele perde a referência e só executa a última chamada de atualização.
+        //setResultado(resultado + 1)
+        //setResultado(resultado + 3) //Só executaria essa última.
+        //Testei chamando na do meio o setTimeout. Depois do tempo, ele atualizava o valor inicial para + 1, ignorando a mudança da última linha
+        // Ou seja, a última linha transformou 0 em 3, mas um segundo depois transformava o 3 em 1.
+
+        // Melhor trabalhar com estado anterior usando função de callback
         setResultado((estadoAnterior) => estadoAnterior + 1)
+        setResultado((estadoAnterior) => estadoAnterior + 1)
+        setResultado((estadoAnterior) => estadoAnterior + 1) //Usando a função de callback as 3 chamadas atualizam corretamente
     }
 
     function handleSubtract() {
