@@ -1,0 +1,9 @@
+.ex2.container {
+    max-width: 600px;
+    font-size: 14px;
+}
+
+.ex2.container h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}

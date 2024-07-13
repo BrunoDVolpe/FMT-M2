@@ -1,10 +1,12 @@
 import './App.css'
-import Contador from './components/Contador'
+import { ApiIbge } from './components/ApiIbge'
+// import Contador from './components/Contador'
 
 function App() {
   return (
     <>
-      <Contador />
+      {/* <Contador /> */}
+      <ApiIbge />
     </>
   )
 }
