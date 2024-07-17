@@ -12,7 +12,7 @@ function App() {
       {/* <ApiIbge /> */} {/* Exercício 2 */}
       {/* <Exerc_3 /> */}
       {/* <Exerc_4 /> */}
-      <InputControlado />
+      <InputControlado /> {/* Exercício 5 */}
     </>
   )
 }
