@@ -1,12 +1,14 @@
 import './App.css'
-import { ApiIbge } from './components/ApiIbge'
+import { Exerc_3 } from './components/Exerc_3'
+// import { ApiIbge } from './components/ApiIbge'
 // import Contador from './components/Contador'
 
 function App() {
   return (
     <>
-      {/* <Contador /> */}
-      <ApiIbge />
+      {/* <Contador /> */} {/* Exercício 1 */}
+      {/* <ApiIbge /> */} {/* Exercício 2 */}
+      <Exerc_3 />
     </>
   )
 }
