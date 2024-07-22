@@ -1,5 +1,6 @@
 .hero-banner__bg {
     height: 464px;
+    min-height: 464px;
     width: 100%;
     background-color: #ffcc00;
     display: flex;
