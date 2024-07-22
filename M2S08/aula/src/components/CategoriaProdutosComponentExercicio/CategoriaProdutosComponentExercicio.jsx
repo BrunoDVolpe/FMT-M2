@@ -1,5 +1,5 @@
-import CategoriaProduto from "../../components/CategoriaProduto/CategoriaProduto"
-import './Exercicios.css'
+import CategoriaProduto from "../CategoriaProdutoComponentExercicio/CategoriaProdutoComponentExercicio"
+import './CategoriaProdutosComponentExercicio.css'
 
 const CATEGORIAS = [
     {
@@ -74,7 +74,7 @@ const CATEGORIAS = [
     },
 ]
 
-function Exercicios(){
+function CategoriaProdutosComponentExercicio(){
     return (
         <>
             <div className="lista-categorias">
@@ -88,4 +88,4 @@ function Exercicios(){
     )
 }
 
-export default Exercicios
+export default CategoriaProdutosComponentExercicio

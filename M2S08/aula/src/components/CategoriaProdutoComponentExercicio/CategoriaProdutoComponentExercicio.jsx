@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import './CategoriaProduto.css'
+import './CategoriaProdutoComponentExercicio.css'
 
-function CategoriaProduto({ texto, imagem }) {
+function CategoriaProdutoComponentExercicio({ texto, imagem }) {
     return (
     <>
         <div className="card-categoria">
@@ -14,9 +14,9 @@ function CategoriaProduto({ texto, imagem }) {
     );
 }
 
-CategoriaProduto.propTypes = {
+CategoriaProdutoComponentExercicio.propTypes = {
     texto: PropTypes.string,
     imagem: PropTypes.string,
 };
 
-export default CategoriaProduto
+export default CategoriaProdutoComponentExercicio
