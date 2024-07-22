@@ -1,0 +1,13 @@
+body {
+    align-items: flex-start;
+}
+
+#root {
+    flex-grow: 1;
+}
+
+.home-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

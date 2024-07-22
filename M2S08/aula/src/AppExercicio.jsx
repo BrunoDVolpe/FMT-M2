@@ -6,7 +6,7 @@ import './AppExercicio.css'
 
 function AppExercicio() {
 
-  const isAuthenticated = false
+  const isAuthenticated = true
   {/* Estrutura de tela quando está autenticado */}
   return (
     <>

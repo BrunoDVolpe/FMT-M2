@@ -1,9 +1,10 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LoginPageExercicio from '../pages/LoginPageExercicio/LoginPageExercicio'
+import HomePageExercicio from '../pages/HomePageExercicio/HomePageExercicio'
 
 function RoutesComponentExercicio() {
 
-    const isAuthenticated = false
+    const isAuthenticated = true
     // function loginRedirect(component) {
     //     if (isAuthenticated) {
     //         return <Navigate to='/' replace />
@@ -21,7 +22,7 @@ function RoutesComponentExercicio() {
                 {isAuthenticated ?
                     (
                         <>
-                            {/* <Route path='/' Component={Home} /> */}
+                            <Route path='/' Component={HomePageExercicio} />
                         </>
                     )
                     : (
