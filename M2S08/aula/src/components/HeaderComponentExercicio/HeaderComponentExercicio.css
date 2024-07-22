@@ -1,0 +1,29 @@
+.header__bg {
+    background-color: #1A1A1A;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 0 0 8px 8px;
+    z-index: 1;
+}
+
+.header {
+    background-color: #1A1A1A;
+    width: 100%;
+    max-width: 1200px;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header button {
+    background-color: #FFCC00;
+    color: #222;
+    border-radius: 24px;
+    padding: 12px;
+    text-transform: uppercase;
+    width: 150px;
+    height: 48px;
+}
