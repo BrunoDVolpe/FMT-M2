@@ -1,0 +1,9 @@
+#root {
+    width: 100%;
+}
+
+.lista-categorias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+}
