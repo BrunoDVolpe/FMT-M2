@@ -1,13 +1,21 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './LoginPageExercicio.css'
 
 function LoginPageExercicio() {
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const navigate = useNavigate()
 
     function handleSubmit(e) {
         e.preventDefault()
         console.log('email: ', email, ' | senha: ', password)
+        if(email == "admin@admin.com" && password == "admin123") {
+            navigate('/')
+        }
+        setEmail('')
+        setPassword('')
     }
 
     return (
@@ -18,8 +26,8 @@ function LoginPageExercicio() {
             </div>
             <p>Insira seu e-mail para entrar ou se cadastrar:</p>
             <form className='login-form' onSubmit={handleSubmit}>
-                <input type='text' placeholder='E-mail' name='email' onChange={(e) => setEmail(e.target.value)} />
-                <input type='password' placeholder='Senha' name='password' onChange={(e) => setPassword(e.target.value)} />
+                <input type='text' placeholder='E-mail' name='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type='password' placeholder='Senha' name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
                 <button type='submit'>Continuar com e-mail</button>
             </form>
         </div>
