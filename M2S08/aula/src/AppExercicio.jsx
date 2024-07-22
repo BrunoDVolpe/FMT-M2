@@ -7,19 +7,13 @@ import './AppExercicio.css'
 function AppExercicio() {
 
   const isAuthenticated = true
-  {/* Estrutura de tela quando está autenticado */}
+
   return (
     <>
       <Router>
         {isAuthenticated ? 
         (
-          
-          <div className='grid-container'>
-            {/* <Header /> */}
-            {/* <Sidebar /> */}
-
-            <RoutesComponent />
-          </div>
+          <RoutesComponent />
         ) 
         : (
           <RoutesComponent />

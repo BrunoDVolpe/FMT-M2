@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import LoginPageExercicio from '../pages/LoginPageExercicio/LoginPageExercicio'
 import HomePageExercicio from '../pages/HomePageExercicio/HomePageExercicio'
+import ProdutosPageExercicio from '../pages/ProdutosPageExercicio/ProdutosPageExercicio'
 
 function RoutesComponentExercicio() {
 
@@ -17,7 +18,10 @@ function RoutesComponentExercicio() {
         <>
             <Routes>
                 {/* Exercício */}
-                <Route path='/login-exercicio' element={<LoginPageExercicio />} />
+                <Route path='/signin' element={<LoginPageExercicio />} />
+                <Route path='/' element={<HomePageExercicio />} />
+                <Route path='/home' element={<HomePageExercicio />} />
+                <Route path='/produtos' element={<ProdutosPageExercicio />} />
 
                 {isAuthenticated ?
                     (
@@ -27,7 +31,7 @@ function RoutesComponentExercicio() {
                     )
                     : (
                         <>
-                            <Route path='*' element={<Navigate replace to='/login-exercicio' />} />
+                            <Route path='*' element={<Navigate replace to='/signin' />} />
                         </>
                     )
                 }
