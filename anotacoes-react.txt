@@ -142,3 +142,104 @@ Quando precisa passar uma referência de pai para filho, precisa englobar o filh
 O forwardRef pede dois argumentos: forwardRef(props, ref).
 Input2 está da forma que usamos até então e que não recebe a referência do componente.
 Input3 é a solução com fazer o exemplo antes do 1:51
+
+-------------------
+
+Semana 8
+
+------
+Aula 1
+------
+
+Design atômico simplificado (metodologia de design de interfaces). O atômico realmente cria pastas chamadas "átomos", "células", etc.
+No que estamos chamando de modelo simplificado, criamos uma pasta para "pages", uma página para "Componentes". Dentro de componentes criamos uma pasta para cada componente, assim podemos organizar o componente e seu CSS em um único lugar.
+
+Instalar json-server: npm install json-server
+https://www.npmjs.com/package/json-server
+
+Criamos um arquivo chamado db.json e rodamos um servidor usando o json-server: json-server --watch db.json
+Criamos o arquivo web.js para criar as funções que irão interagir com o banco de banco de dados.
+
+------
+Aula 2
+------
+
+Mencionado na aula, porque perguntaram, sobre o Bootstrap, bootstrap-react e tailwind. (nada aprofundado)
+
+SPA - Renderiza tudo através de uma única página, o index. Tem formas de trabalhar pro usuário conseguir voltar, alterar url, etc.
+
+ROTAS:
+Usaremos o React Router: https://reactrouter.com
+Instalação: npm i react-router-dom
+Instalação de @types para ajudar durante desenvolvimento: npm install --save-dev @types/react-router-dom
+
+Esse "as Router" é só pra apelidar, igual faço no PL SQL.
+O BrowserRouter funcionará como uma espécie de switch case, verificando em qual condição a rota do navegador cai e exibindo a página certa.
+
+Boilerplate:
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
+
+<>
+<Router>
+    <Routes>
+        <Route path='/login' Component={SignIn} />
+    </Routes>
+</Router>
+</>
+
+------
+Element e Component
+<Route path='/login' Component={SignIn} />
+<Route path='/cadastro' element={<SignUp />} />
+
+Ambos fazem a mesma coisa (existem algumas diferenças), aí cada um se declara o componente de uma forma. Em termos de performance, o element é mais performático. O Component fica criando novas instâncias cada vez que é chamado.
+Por isso, element é mais usado no mercado.
+
+------
+
+Exemplos de rotas e funções recebendo elementos:
+function loginRedirect(componente) {
+    if(isAuthenticated) {
+      return <Navigate to={'/'} replace />
+    }
+    return componente
+  }
+
+------
+
+Tag <Link> ou NavLink, a forma de substituir o <a href"">.
+No React utilizamos o React Router. Se usar o <a>, ele quebra o fluxo do SPA por ficar chamando páginas diferentes.
+
+import { Link } from "react-router-dom"
+<Link to={'/'}>Home</Link>
+
+------
+
+Aula 3
+
+------
+
+Base para projeto e rotas:
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
+
+------
+
+Boilerplate para projeto React: https://github.com/BrunoDVolpe/boilerplate_reactjs
+
+------
+
+Redirecionamento:
+
+import { useNavigate } from 'react-router-dom';
+
+ const navigate = useNavigate();
+
+  function goToAbout() {
+    navigate('/about');
+  }
+
+------
+
+- App3 tem a primeira estrutura de página mestra / base para carregar automaticamente o header e sidebar.
+- Tem também um modelo de rotas para separar as rotas em um arquivo e deixar o app apenas com o carregamento das telas.
+- App.css, no final, tem exemplo com display grid
