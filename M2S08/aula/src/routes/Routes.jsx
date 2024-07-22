@@ -3,6 +3,7 @@ import Signin from '../pages/SignIn/SignIn'
 import Signup from '../pages/SignUp/SignUp'
 import Home from '../pages/Home/Home'
 import Bicicletas from '../pages/Bicicletas/Bicicletas'
+import LoginPageExercicio from '../pages/LoginPageExercicio/LoginPageExercicio'
 
 // Yan usa o sufixo Page e Component para ajudar a identificar as coisas.
 // HomePage
@@ -22,6 +23,10 @@ function RoutesComponent() {
     return (
         <>
             <Routes>
+                {/* Exercício */}
+                <Route path='/login-exercicio' element={<LoginPageExercicio />} />
+
+                {/* Aula */}
                 <Route path='/login' element={loginRedirect(<Signin />)} />
                 <Route path='/cadastro' element={loginRedirect(<Signup />)} />
 
