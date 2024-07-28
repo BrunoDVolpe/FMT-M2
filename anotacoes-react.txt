@@ -28,6 +28,14 @@ Início
 - Rodar: npm install para instalar dependências
 - Rodar: npm run dev para iniciar o servidor com as configurações padrão e checar que está funcionando
 
+(Complemento para rotas:
+Instalação: npm i react-router-dom
+Instalação de @types para ajudar durante desenvolvimento: npm install --save-dev @types/react-router-dom
+Instatalação do react-hook-form: npm install react-hook-form
+Instalação do Bootstrap: npm install bootstrap
+Instalaçao Lucide: npm install lucide-react (símbolos)
+)
+
 Renderizar uma lista bikes criando um card através do componente CardBike pra cada item da lista:
 {bikes.map(bike =>
     <CardBike key={bike.id} imagemSrc={bike.imgSrc} modelo={bike.modelo} preco={bike.preco}
@@ -165,6 +173,9 @@ Aula 2
 ------
 
 Mencionado na aula, porque perguntaram, sobre o Bootstrap, bootstrap-react e tailwind. (nada aprofundado)
+Bootstrap: npm install bootstrap
+No index.js (ou arquivo que queira usar o bootstrap): import 'bootstrap/dist/css/bootstrap.min.css';
+Lucide: npm install lucide-react (símbolos)
 
 SPA - Renderiza tudo através de uma única página, o index. Tem formas de trabalhar pro usuário conseguir voltar, alterar url, etc.
 
@@ -243,3 +254,102 @@ import { useNavigate } from 'react-router-dom';
 - App3 tem a primeira estrutura de página mestra / base para carregar automaticamente o header e sidebar.
 - Tem também um modelo de rotas para separar as rotas em um arquivo e deixar o app apenas com o carregamento das telas.
 - App.css, no final, tem exemplo com display grid
+
+-------------------
+
+Semana 9
+
+------
+Aula 1
+------
+
+CSS Modules
+- Ajuda a gerenciar css sem interferir com outros CSSs, ou seja, reduz conflitos de classes.
+Esse recurso usa o nome da classe que criamos coom prefixo e coloca uma hash depois pra diferenciar de outras classes.
+- Nomenclatura recomendada é que seja camelCase.
+
+Exemplo:
+App.jsx (arquivo onde aplicarei as classes)
+App.module.css
+
+dentro do module vou declarar as classes como no CSS: ".container {}"
+
+No App.jsx, vou:
+- importar: import styles from "./..."
+- No componente: <div className={styles.container} >
+Normalmente aplicamos uma classe só, mas se precisar colocar mais de uma, podemos concatenar com string:
+    className={`${styles.container} ${styles.outroEstilo} flex outroEstiloPadrão`}
+
+------
+
+useContext - Ajuda a criar um contexto global que facilita a troca de informações entre os componentes sem precisar ficar passando de um para o outro.
+O contexto terá o contexto em si, que declara o contexto, e o provider que armazena as regras e dados que serão disponibilizados
+pra quem tiver como filho.
+
+Sobre o provedor, tudo o que estiver abaixo dele como filho, conseguirá acessar o contexto.
+Importante, eu só consigo usar o contexto dentro do elemento filho. Então por exemplo, nesses exercício declaramos ele dentro
+de App. Eu não conseguiria usar ele em App, apenas nas páginas filhas de onde eu estou declarando.
+
+Ver exercício da aula com o exemplo.
+Carrinho.jsx tem a declaração do contexto, declaração do provider e a utilização dele como um hook personalizado.
+O personalizado fará com que no código eu apenas declare ele e possa já usar sem precisar ficar importando outras coisas.
+
+No exemplo, Home está usando o hook personalizado e Formulario usa o contexto, mas aplica hook useContext para usá-lo.
+App.jsx é quem está aplicando o provider em todo o seu escopo.
+
+Template de página:
+<Outlet \> é o placeholder para inserir outros arquivos no template. O template na verdade é uma página sobre página.
+Se eu declarar o template sem um filho, ele será visto como uma página. Essa combinação de declarar filho dentro da página 
+e inserir o Outlet é o que faz com que seja um template.
+
+exemplo:
+import { Outlet } from 'react-router-dom'
+export function TemplatePrivateRoute() {
+    return (
+        <>
+            <h1>Conteúdo do template</h1>
+            <main>
+                <Outlet />
+            </main>
+        </>
+    )
+}
+
+No uso do template ele ficará assim:
+<Routes>
+    {/* MINHAS ROTAS PUBLICAS */}
+    <Route path="/" element={<LoginPage />} />
+    <Route path="/cadastro" element={<CadastroPage />} />
+
+    {/* MINHAS ROTAS PRIVADAS */}
+    <Route path="/dashboard" element={<TemplatePrivateRoute />}> {/* Aqui é a chamada do template */}
+        <Route path="/dashboard" element={<HomePage />}/>  {/* Aqui é o que será inserido no Outlet */}
+    </Route>
+</Routes>
+
+react-hook-form
+Essa biblioteca ajudará a lidar com o "name" do formulário e a função handleSubmit já eliminará o comportamento padrão do form.
+Exemplo: 36
+import { useForm } from 'react-hook-form'
+
+Na function:
+    const { register, handleSubmit } = useForm()
+
+    function onSubmit(dados) { //Não precisa mais do evento, a função previne o default e já manda os dados do formulário como um objeto.
+        console.log(dados)
+        // Não precisa mais de const formData = new <Formdata>...
+    }
+
+No formulário:
+    <form onSubmit={handleSubmit(onSubmit)}> // Uso a função do hook e passo a minha função como parâmetro.
+        <input
+            type="email"
+            className="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+            {...register("email")} // Aqui eu uso o register dentro de um spread operator para registrar o name dentro dos dados desse formulário. Ele associará o valor do input ao name dado.
+    />
+
+O register possui também algumas validações, basta chamar um objeto como segundo parâmetro.
+Exemplo:
+ {...register("email", { required: true })} 
