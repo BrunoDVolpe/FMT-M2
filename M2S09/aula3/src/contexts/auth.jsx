@@ -30,7 +30,7 @@ export function AuthProvider({ children }) {
         }
         /// fetch ... 
         // const response = await apiAuth('https://api.lab365.com.br/sessions', data)
-        await apiAuth('https://api.lab365.com.br/sessions', data)
+        await apiAuth('https://api.lab365.com.br/sessions', data) //Assim só como exemplo, por isso não estamos pegando os valores da response
         
         const userResponse = {
             id: Date.now(),
