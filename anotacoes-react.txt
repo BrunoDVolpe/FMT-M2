@@ -31,9 +31,9 @@ Início
 (Complemento para rotas:
 Instalação: npm i react-router-dom
 Instalação de @types para ajudar durante desenvolvimento: npm install --save-dev @types/react-router-dom
-Instatalação do react-hook-form: npm install react-hook-form
+Instalação do react-hook-form: npm install react-hook-form
 Instalação do Bootstrap: npm install bootstrap
-Instalaçao Lucide: npm install lucide-react (símbolos)
+Instalação Lucide: npm install lucide-react (símbolos)
 )
 
 Renderizar uma lista bikes criando um card através do componente CardBike pra cada item da lista:
@@ -56,6 +56,8 @@ const comprarBike = () => {
 Semana 07
 prop-types: https://www.npmjs.com/package/prop-types
 
+Desabilitar:
+- Em .eslintrc, adicionar dentro de rules a propriedade 'react/prop-types': 0
 ------
 
 const [resultado, setResultado] = useState(0)
@@ -352,4 +354,9 @@ No formulário:
 
 O register possui também algumas validações, basta chamar um objeto como segundo parâmetro.
 Exemplo:
- {...register("email", { required: true })} 
+ {...register("email", { required: true })}
+
+------
+Aula 3
+------
+
