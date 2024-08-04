@@ -361,3 +361,77 @@ Aula 3
 ------
 
 Netlify para build.
+
+----------
+Semana 10
+------
+Aula 2
+------
+
+Json Server:
+npm install -D json-server
+ou
+npm install --save-dev json-server
+
+Exemplo:
+(arquivo db.json)
+{
+  "posts": [
+    { "id": "1", "title": "a title", "views": 100 },
+    { "id": "2", "title": "another title", "views": 200 }
+  ],
+  "comments": [
+    { "id": "1", "text": "a comment about post 1", "postId": "1" },
+    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+  ],
+  "profile": {
+    "name": "name in the profile"
+  }
+}
+
+Nesse json, cada parte ali é uma rota: "posts", "comments" e "profile".
+
+Script personalizado para rodar o json server:
+No package.json, em "scripts", adicionar:
+    "server": "npx json-server --watch server.json -p 3333"
+Esse comando roda o servidor do json-server, o comando watch faz com que ele fique observando mudanças no arquivo do json-server
+para reiniciar o servidor e o -p define a porta, para evitar que conflite com a porta do vite.
+
+Esse json server, se passarmos o endpoint com query params, ele filtra na base.
+Exemplo: localhost:3333/users?email=carlos@gmail.com&senha=12345, se existir essa combinação na base, vai retornar o objeto do Carlos.
+Podemos nesse projeto usar a validação via get.
+
+------
+
+Para não precisar ficar repetindo o fetch com o link inteiro, podemos criar a estrutura abaixo:
+Criar utils/api.js:
+/**
+*
+* @param {string} endpoint
+* @param {RequestInit} init
+* @returns
+*/
+export function api(endpoint, init) {
+    const url = `http://localhost:3333` + endpoint
+
+    return fetch(url, init)
+}
+
+Esse init é um objeto do próprio fetch e, através dele, podemos fazer alterações, por exemplo de método, body, headers, etc.
+
+O uso dessa função estará em index.jsx, dentro de AuthProvider, na função signIn (validar que foi importado corretamente.)
+async function signIn({ email, password }) {
+    const response = await api(`/users?email=${email}&senha=${password}`)
+}
+
+------
+
+Exemplo de edição de página no index.jsx da página editar-local (não faz parte desse projeto, peguei da aula como exemplo.)
+Pra acessar a página de edição, ele fez uma página de listagem, numa estrutura de tabela, e usou uma estrutura:
+<TableRow key={local.id}>
+    <TableCell>{local.nome}</TableCell>
+    ...
+    <TableCell>
+        <Link to={`/dashboard/locais/${local.id}`}>Editar</Link>
+    </TableCell>
+</TableRow>
