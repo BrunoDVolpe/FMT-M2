@@ -1,0 +1,15 @@
+.layout {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+    width: 350px;
+    background-color: whitesmoke;
+    height: 100vh;
+    padding: 20px;
+}
+
+.layout main {
+    padding: 20px;
+}

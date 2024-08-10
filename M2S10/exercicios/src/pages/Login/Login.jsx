@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form"
 import { useAuth } from "../../contexts/auth"
+import { Navigate } from "react-router-dom"
 
 export function Login() {
-    const { user, signIn, signOut } = useAuth()
+    const { user, signIn } = useAuth()
     const { register, handleSubmit, formState: {errors} } = useForm()
 
     async function onSubmit(data) {
@@ -12,10 +13,11 @@ export function Login() {
 
     return user ?
     (
-        <div>
-            <p>Usuário logado.</p>
-            <button onClick={signOut}>Sair</button>
-        </div>
+        // <div>
+        //     <p>Usuário logado.</p>
+        //     <button onClick={signOut}>Sair</button>
+        // </div>
+        <Navigate to="/" replace={true} />
     )
     :
     (<div style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 50 }}>
