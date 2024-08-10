@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form"
 import { useAuth } from "../../contexts/auth"
 import { Navigate } from "react-router-dom"
+import "./Login.css"
 
 export function Login() {
     const { user, signIn } = useAuth()
@@ -21,7 +22,7 @@ export function Login() {
     )
     :
     (<div style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 50 }}>
-        <div style={{width: 350}}>
+        <div className="login-form" style={{width: 350}}>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input type="text" {...register('username', { required: true })} className="form-control" placeholder="Username" />
                 {errors.username && <span className="form-text text-muted">O username é obrigatório.</span>}
