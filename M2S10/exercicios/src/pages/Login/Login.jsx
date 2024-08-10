@@ -23,6 +23,7 @@ export function Login() {
     :
     (<div style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 50 }}>
         <div className="login-form" style={{width: 350}}>
+            <h2>Develop</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input type="text" {...register('username', { required: true })} className="form-control" placeholder="Username" />
                 {errors.username && <span className="form-text text-muted">O username é obrigatório.</span>}
